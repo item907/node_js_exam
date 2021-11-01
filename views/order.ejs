@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanks for order</title>
+</head>
+
+<body>
+    <a href="/">回首頁</a>
+    <h1>請確認以下訂購資訊</h1>
+    <form action="." method="POST" id="order_form">
+        <span>訂購人:</span>
+        <input type="text" name="order_name" id="order_name" value="<%= order_name %>" readonly>
+        <br><br>
+        <span>連絡電話:</span>
+        <input type="text" name="order_phone" id="order_phone" value="<%= order_phone %>" readonly>
+        <br><br>
+        <span>地址:</span>
+        <input type="text" name="order_address" id="order_address" value="<%= order_address %>" readonly>
+        <br><br>
+        <span>EMAIL:</span>
+        <input type="email" name="order_email" id="order_email" value="<%= order_email %>" readonly>
+        <br><br>
+        <span>購買商品:</span>
+        <input type="text" name="order_item" id="order_item" value="<%= order_item %>" readonly>
+        <br><br>
+        <span>數量:</span>
+        <input type="number" name="order_num" id="order_num" value="<%= order_num %>" readonly>
+        <br><br>
+        <button id="create_order">確認訂購</button>
+    </form>
+
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+
+    <script src="./js/firebase.js"></script>
+    <script src="/js/order.js"></script>
+</body>
+
+</html>
