@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const db = require('./db.js');
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -15,6 +16,26 @@ const mailTransport = nodemailer.createTransport({
         user: credentials.sendgrid.user,
         pass: credentials.sendgrid.password
     }
+});
+
+// 建立訂單
+app.post('/order/product', (req, res, next) => {
+    console.log('[準備建立訂單]');
+    console.log('[前端送來的資料]', req.body);
+    const product = req.body;
+    db
+        .collection("orderList")
+        .add(product)
+        .then(response => {
+            res.status(200).json({
+                msg: `${product.name}訂購成功`,
+                data: product,
+                response
+            });
+        })
+        .catch(error => {
+            res.status(500).json(err);
+        });
 });
 
 app.use(express.static('./public'));
@@ -54,6 +75,7 @@ app.post('/order', (req, res) => {
     go(req);
     res.render('order.ejs', req.body);
 });
+
 
 app.listen(8888, () => {
     console.log('server run on port 8888');

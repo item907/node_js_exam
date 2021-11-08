@@ -11,7 +11,7 @@
 <body>
     <a href="/">回首頁</a>
     <h1>請確認以下訂購資訊</h1>
-    <form action="." method="POST" id="order_form">
+    <form id="order_form">
         <span>訂購人:</span>
         <input type="text" name="order_name" id="order_name" value="<%= order_name %>" readonly>
         <br><br>
@@ -30,14 +30,14 @@
         <span>數量:</span>
         <input type="number" name="order_num" id="order_num" value="<%= order_num %>" readonly>
         <br><br>
-        <button id="create_order">確認訂購</button>
+        <button id="create_order" type="submit">確認訂購</button>
     </form>
 
     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
 
-    <script src="./js/firebase.js"></script>
     <script src="/js/order.js"></script>
 </body>
 
