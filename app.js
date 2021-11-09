@@ -33,7 +33,7 @@ app.post('/order/product', (req, res, next) => {
                 response
             });
         })
-        .catch(error => {
+        .catch(err => {
             res.status(500).json(err);
         });
 });
